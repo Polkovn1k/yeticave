@@ -1,9 +1,3 @@
-<?php
-    $is_auth = rand(0, 1);
-
-    $user_name = 'Dimar'; // укажите здесь ваше имя
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -57,9 +51,9 @@
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categories as $key => $category): ?>
+            <?php foreach ($categories as $category): ?>
                 <li class="nav__item">
-                    <a href="pages/<?=$key;?>.html"><?=$category;?></a>
+                    <a href="pages/<?=$category['character_code'];?>.html"><?=$category['name_category'];?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
