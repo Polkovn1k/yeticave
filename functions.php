@@ -17,3 +17,58 @@
         $total_minutes = $interval->invert ? 0 : $interval->i;
         return [str_pad($total_hours, 2, '0', STR_PAD_LEFT), str_pad($total_minutes, 2, '0', STR_PAD_LEFT)];
     }
+
+    function validate_date ($date) {
+        if (is_date_valid($date)) {
+            $now = date_create();
+            $d = date_create($date);
+            $diff = date_diff($d, $now);
+            $interval = date_interval_format($diff, "%d");
+
+            if ($interval < 1) {
+                return 'Дата должна быть больше текущей не менее чем на один день';
+            };
+        } else {
+            return 'Содержимое поля «дата завершения» должно быть датой в формате «ГГГГ-ММ-ДД»';
+        }
+    }
+
+    function db_get_prepare_stmt_version($link, $sql, $data = []) {
+        $stmt = mysqli_prepare($link, $sql);
+
+        if ($stmt === false) {
+            $errorMsg = 'Не удалось инициализировать подготовленное выражение: ' . mysqli_error($link);
+            die($errorMsg);
+        }
+
+        if ($data) {
+            $types = '';
+            $stmt_data = [];
+
+            foreach ($data as $key => $value) {
+                $type = 's';
+
+                if (is_int($value)) {
+                    $type = 'i';
+                }
+                else if (is_double($value)) {
+                    $type = 'd';
+                }
+
+                if ($type) {
+                    $types .= $type;
+                    $stmt_data[] = $value;
+                }
+            }
+
+            $values = array_merge([$stmt, $types], $stmt_data);
+            mysqli_stmt_bind_param(...$values);
+
+            if (mysqli_errno($link) > 0) {
+                $errorMsg = 'Не удалось связать подготовленное выражение с параметрами: ' . mysqli_error($link);
+                die($errorMsg);
+            }
+        }
+
+        return $stmt;
+    }

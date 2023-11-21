@@ -25,12 +25,12 @@ VALUES ('admin@admin.com', 'Admin', '123456789012', 'Moscow'),
 
 /*Наполнение lots*/
 INSERT INTO lots (title, lot_description, img, start_price, date_end, step, user_id, winner_id, category_id)
-VALUES ('2014 Rossignol District Snowboard', 'Элитный Сноуборд 2014 года', 'img/lot-1.jpg', 10999, '2023-10-04 21:19', 50, 2, null, 1),
-       ('DC Ply Mens 2016/2017 Snowboard', 'Обычный Сноуборд 2016/2017 года', 'img/lot-2.jpg', 159999, '2023-11-06', 10, 3, null, 1),
-       ('Крепления Union Contact Pro 2015 года размер L/XL', 'Супер крепкие крепления из бумаги', 'img/lot-3.jpg', 8000, '2023-11-18 19:30', 150, 3, null, 2),
-       ('Ботинки для сноуборда DC Mutiny Charocal', 'Теплые шлепанцы для сноуборда', 'img/lot-4.jpg', 10999, '2023-12-03 21:03', 30, 4, null, 3),
-       ('Куртка для сноуборда DC Mutiny Charocal', 'Дорогая шерстяная майка', 'img/lot-5.jpg', 7500, '2023-11-07 23:43', 15, 5, null, 4),
-       ('Маска Oakley Canopy', 'Мемная маска Гая Фокса для low iq', 'img/lot-6.jpg', 5400, '2023-10-05 19:34', 70, 2, null, 6);
+VALUES ('2014 Rossignol District Snowboard', 'Элитный Сноуборд 2014 года', 'lot-1.jpg', 10999, '2023-10-04 21:19', 50, 2, null, 1),
+       ('DC Ply Mens 2016/2017 Snowboard', 'Обычный Сноуборд 2016/2017 года', 'lot-2.jpg', 159999, '2023-11-06', 10, 3, null, 1),
+       ('Крепления Union Contact Pro 2015 года размер L/XL', 'Супер крепкие крепления из бумаги', 'lot-3.jpg', 8000, '2023-11-18 19:30', 150, 3, null, 2),
+       ('Ботинки для сноуборда DC Mutiny Charocal', 'Теплые шлепанцы для сноуборда', 'lot-4.jpg', 10999, '2023-12-03 21:03', 30, 4, null, 3),
+       ('Куртка для сноуборда DC Mutiny Charocal', 'Дорогая шерстяная майка', 'lot-5.jpg', 7500, '2023-11-07 23:43', 15, 5, null, 4),
+       ('Маска Oakley Canopy', 'Мемная маска Гая Фокса для low iq', 'lot-6.jpg', 5400, '2023-10-05 19:34', 70, 2, null, 6);
 
 /*Наполнение bets*/
 INSERT INTO bets (price_bet, user_id, lot_id)

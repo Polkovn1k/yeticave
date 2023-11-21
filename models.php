@@ -6,11 +6,15 @@
     }
 
     function get_query_categories() {
-        return 'SELECT name_category, character_code FROM categories';
+        return 'SELECT id, name_category, character_code FROM categories';
     }
 
     function get_query_lot($id_lot) {
         return 'SELECT lots.title, lots.start_price, lots.img, lots.date_end, lots.lot_description, categories.name_category FROM lots '
              . 'JOIN categories ON lots.category_id=categories.id '
              . 'WHERE lots.id='.$id_lot.';';
+    }
+
+    function set_new_lot($user_id) {
+        return "INSERT INTO lots (title, category_id, lot_description, start_price, step, date_end, img, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, $user_id);";
     }
