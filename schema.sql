@@ -15,7 +15,7 @@ CREATE TABLE users (
     date_registration DATETIME DEFAULT CURRENT_TIMESTAMP,
     email VARCHAR(128) NOT NULL UNIQUE,
     user_name VARCHAR(128) NOT NULL,
-    user_password CHAR(12) NOT NULL,
+    user_password VARCHAR(255) NOT NULL,
     contacts TEXT
 );
 

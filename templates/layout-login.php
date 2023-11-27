@@ -52,9 +52,7 @@
                 <?php endforeach; ?>
             </ul>
         </nav>
-        <section class="lot-item container">
-            <?=$content;?>
-        </section>
+        <?=$content;?>
     </main>
 
 </div>

@@ -72,3 +72,29 @@
 
         return $stmt;
     }
+
+    function validate_email ($email) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return "E-mail должен быть корректным";
+        }
+    }
+
+    function validate_length ($value, $min, $max) {
+        if ($value) {
+            $len = strlen($value);
+            if ($len < $min or $len > $max) {
+                return "Значение должно быть от $min до $max символов";
+            }
+        }
+    }
+
+    function get_arrow ($result_query) {
+        $row = mysqli_num_rows($result_query);
+        if ($row === 1) {
+            $arrow = mysqli_fetch_assoc($result_query);
+        } else if ($row > 1) {
+            $arrow = mysqli_fetch_all($result_query, MYSQLI_ASSOC);
+        }
+
+        return $arrow;
+    }
