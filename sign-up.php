@@ -16,6 +16,18 @@
     }
     $categories = mysqli_fetch_all($categories_result, MYSQLI_ASSOC);
 
+    if ($is_auth) {
+        $page403_content = include_template('403.php', [
+            'categories' => $categories,
+            'is_auth' => $is_auth,
+            'title' => 'Доступ запрещен',
+            'user_name' => $user_name
+        ]);
+        http_response_code(403);
+        print($page403_content);
+        die();
+    }
+
     $page_content = include_template('main-sign.php', []);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

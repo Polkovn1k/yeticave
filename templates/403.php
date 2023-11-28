@@ -52,7 +52,9 @@
                 <?php endforeach; ?>
             </ul>
         </nav>
-        <?=$content;?>
+        <section class="lot-item container">
+            <h2>403 Отказано в доступе</h2>
+        </section>
     </main>
 
 </div>

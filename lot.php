@@ -42,6 +42,7 @@
 
     $page_content = include_template('main-lot.php', [
         'lot' => $lot,
+        'is_auth' => $is_auth,
     ]);
     $layout_content = include_template('layout-lot.php', [
         'content' => $page_content,

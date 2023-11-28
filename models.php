@@ -38,3 +38,19 @@
             return $error;
         }
     }
+
+    function get_login($con, $email) {
+        if (!$con) {
+            $error = mysqli_connect_error();
+            return $error;
+        } else {
+            $sql = "SELECT id, email, user_name, user_password FROM users WHERE email = '$email'";
+            $result = mysqli_query($con, $sql);
+            if ($result) {
+                $users_data= get_arrow($result);
+                return $users_data;
+            }
+            $error = mysqli_error($con);
+            return $error;
+        }
+    }

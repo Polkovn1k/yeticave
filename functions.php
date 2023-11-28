@@ -18,7 +18,7 @@
         return [str_pad($total_hours, 2, '0', STR_PAD_LEFT), str_pad($total_minutes, 2, '0', STR_PAD_LEFT)];
     }
 
-    function validate_date ($date) {
+    function validate_date($date) {
         if (is_date_valid($date)) {
             $now = date_create();
             $d = date_create($date);
@@ -73,13 +73,13 @@
         return $stmt;
     }
 
-    function validate_email ($email) {
+    function validate_email($email) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return "E-mail должен быть корректным";
+            return 'E-mail должен быть корректным';
         }
     }
 
-    function validate_length ($value, $min, $max) {
+    function validate_length($value, $min, $max) {
         if ($value) {
             $len = strlen($value);
             if ($len < $min or $len > $max) {
@@ -88,8 +88,9 @@
         }
     }
 
-    function get_arrow ($result_query) {
+    function get_arrow($result_query) {
         $row = mysqli_num_rows($result_query);
+        $arrow = null;
         if ($row === 1) {
             $arrow = mysqli_fetch_assoc($result_query);
         } else if ($row > 1) {

@@ -1,4 +1,5 @@
 <?php
-    $is_auth = rand(0, 1);
-    $user_name = 'Dimar';
     $admin_id = 1;
+    session_start();
+    $is_auth = isset($_SESSION['name']);
+    $user_name = $is_auth ? $_SESSION['name'] : null;
